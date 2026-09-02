@@ -5,26 +5,42 @@ print("========================================")
 print("      COMMAND-LINE EXPENSE TRACKER      ")
 print("========================================")
 
-print("1. Add Expense")
-print("2. View Expenses")
-print("3. Show Summary")
-print("4. Exit")
-
 # List to store all expenses
 expenses = []
 
-# For now, just test adding one expense
-amount = input("Amount: ")
-category = input("Category: ")
-description = input("Description: ")
+while True:
+    print()
+    print("1. Add Expense")
+    print("2. View Expenses")
+    print("3. Show Summary")
+    print("4. Exit")
+    print()
 
-expense = {
-    "amount": amount,
-    "category": category,
-    "description": description
-}
+    choice = input("Enter choice: ")
 
-expenses.append(expense)
+    if choice == "1":
+        amount = input("Amount: ")
+        category = input("Category: ")
+        description = input("Description: ")
 
-print("Expense added successfully!")
-print(expenses)
+        expense = {
+            "amount": amount,
+            "category": category,
+            "description": description
+        }
+
+        expenses.append(expense)
+        print("Expense added successfully!")
+
+    elif choice == "2":
+        print("View Expenses - coming soon")
+
+    elif choice == "3":
+        print("Show Summary - coming soon")
+
+    elif choice == "4":
+        print("Exiting program. Goodbye!")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
