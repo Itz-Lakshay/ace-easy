@@ -69,6 +69,19 @@ while True:
             print()
             print("Total: ₹" + str(total))
 
+            # Find the highest spending category
+            highest_category = ""
+            highest_amount = 0
+
+            for category in category_totals:
+                if category_totals[category] > highest_amount:
+                    highest_amount = category_totals[category]
+                    highest_category = category
+
+            print()
+            print("Highest spending category: " + highest_category)
+            print("Amount spent: ₹" + str(highest_amount))
+
     elif choice == "4":
         print("Exiting program. Goodbye!")
         break
