@@ -50,9 +50,24 @@ while True:
             print("No expenses recorded yet.")
         else:
             total = 0
+            category_totals = {}
+
             for item in expenses:
-                total = total + float(item["amount"])
-            print("Total amount spent: ₹" + str(total))
+                amount = float(item["amount"])
+                category = item["category"]
+
+                total += amount
+
+                if category in category_totals:
+                    category_totals[category] += amount
+                else:
+                    category_totals[category] = amount
+
+            for category in category_totals:
+                print(category + ": ₹" + str(category_totals[category]))
+
+            print()
+            print("Total: ₹" + str(total))
 
     elif choice == "4":
         print("Exiting program. Goodbye!")
