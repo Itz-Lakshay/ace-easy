@@ -44,7 +44,15 @@ while True:
                 count = count + 1
 
     elif choice == "3":
-        print("Show Summary - coming soon")
+        print()
+        print("----- Expense Summary -----")
+        if len(expenses) == 0:
+            print("No expenses recorded yet.")
+        else:
+            total = 0
+            for item in expenses:
+                total = total + float(item["amount"])
+            print("Total amount spent: ₹" + str(total))
 
     elif choice == "4":
         print("Exiting program. Goodbye!")
