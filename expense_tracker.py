@@ -19,12 +19,36 @@ while True:
     choice = input("Enter choice: ")
 
     if choice == "1":
-        amount = input("Amount: ")
-        category = input("Category: ")
-        description = input("Description: ")
+        # Validate amount
+        while True:
+            amount_input = input("Amount: ")
+            try:
+                amount_value = float(amount_input)
+                if amount_value <= 0:
+                    print("Amount must be greater than zero. Try again.")
+                else:
+                    break
+            except ValueError:
+                print("Invalid amount. Please enter a number.")
+
+        # Validate category
+        while True:
+            category = input("Category: ")
+            if category.strip() == "":
+                print("Category cannot be empty. Try again.")
+            else:
+                break
+
+        # Validate description
+        while True:
+            description = input("Description: ")
+            if description.strip() == "":
+                print("Description cannot be empty. Try again.")
+            else:
+                break
 
         expense = {
-            "amount": amount,
+            "amount": str(amount_value),
             "category": category,
             "description": description
         }
