@@ -51,7 +51,8 @@ def view_expenses():
     else:
         count = 1
         for item in expenses:
-            print(str(count) + ". " + item["category"] + "  ₹" + item["amount"] + "  " + item["description"])
+            amount_display = format(float(item["amount"]), ".2f")
+            print(str(count) + ". " + item["category"] + " - ₹" + amount_display + " - " + item["description"])
             count += 1
 
 
@@ -77,10 +78,11 @@ def show_summary():
             category_totals[category] = amount
 
     for category in category_totals:
-        print(category + ": ₹" + str(category_totals[category]))
+        amount_display = format(category_totals[category], ".2f")
+        print(category + ": ₹" + amount_display)
 
-    print()
-    print("Total: ₹" + str(total))
+    print("-----------------------")
+    print("Total: ₹" + format(total, ".2f"))
 
     # Find the highest spending category
     highest_category = ""
@@ -93,7 +95,7 @@ def show_summary():
 
     print()
     print("Highest spending category: " + highest_category)
-    print("Amount spent: ₹" + str(highest_amount))
+    print("Amount spent: ₹" + format(highest_amount, ".2f"))
 
 
 # Main program loop
