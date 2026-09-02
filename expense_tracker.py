@@ -33,7 +33,15 @@ while True:
         print("Expense added successfully!")
 
     elif choice == "2":
-        print("View Expenses - coming soon")
+        print()
+        print("----- Expenses -----")
+        if len(expenses) == 0:
+            print("No expenses recorded yet.")
+        else:
+            count = 1
+            for item in expenses:
+                print(str(count) + ". " + item["category"] + "  ₹" + item["amount"] + "  " + item["description"])
+                count = count + 1
 
     elif choice == "3":
         print("Show Summary - coming soon")
