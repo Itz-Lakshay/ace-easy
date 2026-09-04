@@ -56,9 +56,24 @@ def check_special_character(password):
     return False
 
 
+def analyze_password(password):
+    """
+    Run all checks on the password and return a dictionary mapping
+    each requirement's description to True/False.
+    """
+    results = {
+        "At least 8 characters": check_length(password),
+        "Contains uppercase letter": check_uppercase(password),
+        "Contains lowercase letter": check_lowercase(password),
+        "Contains a number": check_number(password),
+        "Contains special character": check_special_character(password),
+    }
+    return results
+
+
 def main():
     print("=== Password Strength Checker ===")
-    # Password input and analysis logic will be added in later commits.
+    # Rating and display logic will be added in later commits.
 
 
 if __name__ == "__main__":
