@@ -71,9 +71,30 @@ def analyze_password(password):
     return results
 
 
+def get_strength_rating(results):
+    """
+    Count how many requirements were satisfied and map that count
+    to a strength label: WEAK, MEDIUM, or STRONG.
+    Returns a tuple of (label, score).
+    """
+    score = 0
+    for passed in results.values():
+        if passed:
+            score += 1
+
+    if score <= 2:
+        label = "WEAK"
+    elif score <= 4:
+        label = "MEDIUM"
+    else:
+        label = "STRONG"
+
+    return label, score
+
+
 def main():
     print("=== Password Strength Checker ===")
-    # Rating and display logic will be added in later commits.
+    # Display logic will be added in the next commit.
 
 
 if __name__ == "__main__":
