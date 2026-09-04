@@ -16,6 +16,7 @@ It is only held in memory long enough to run the checks.
 """
 
 MIN_LENGTH = 8
+SPECIAL_CHARACTERS = "!@#$%^&*()-_=+[]{};:'\",.<>/?\\|`~"
 
 
 def check_length(password):
@@ -35,6 +36,22 @@ def check_lowercase(password):
     """Return True if password contains at least one lowercase letter."""
     for char in password:
         if char.islower():
+            return True
+    return False
+
+
+def check_number(password):
+    """Return True if password contains at least one digit."""
+    for char in password:
+        if char.isdigit():
+            return True
+    return False
+
+
+def check_special_character(password):
+    """Return True if password contains at least one special character."""
+    for char in password:
+        if char in SPECIAL_CHARACTERS:
             return True
     return False
 
