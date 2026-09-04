@@ -15,6 +15,29 @@ Note: The password is never printed, logged, or written to a file.
 It is only held in memory long enough to run the checks.
 """
 
+MIN_LENGTH = 8
+
+
+def check_length(password):
+    """Return True if password meets the minimum length requirement."""
+    return len(password) >= MIN_LENGTH
+
+
+def check_uppercase(password):
+    """Return True if password contains at least one uppercase letter."""
+    for char in password:
+        if char.isupper():
+            return True
+    return False
+
+
+def check_lowercase(password):
+    """Return True if password contains at least one lowercase letter."""
+    for char in password:
+        if char.islower():
+            return True
+    return False
+
 
 def main():
     print("=== Password Strength Checker ===")
