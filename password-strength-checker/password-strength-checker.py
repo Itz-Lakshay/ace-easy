@@ -92,9 +92,33 @@ def get_strength_rating(results):
     return label, score
 
 
+def display_results(results, label, score):
+    """Print the checklist and overall rating to the console."""
+    print("\nPassword Analysis")
+    print("-" * 40)
+
+    for requirement, passed in results.items():
+        mark = "PASS" if passed else "FAIL"
+        print(f"  [{mark}] {requirement}")
+
+    print("-" * 40)
+    print(f"Requirements satisfied: {score}/5")
+    print(f"Strength: {label}")
+    print("-" * 40)
+
+
 def main():
     print("=== Password Strength Checker ===")
-    # Display logic will be added in the next commit.
+    password = input("Enter a password to check: ")
+
+    results = analyze_password(password)
+    label, score = get_strength_rating(results)
+
+    # Drop the reference to the raw password now that we're done with
+    # it — nothing from here on needs or touches the actual password.
+    del password
+
+    display_results(results, label, score)
 
 
 if __name__ == "__main__":
